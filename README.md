@@ -1,6 +1,6 @@
 # Sepolia ETH Balance Checker 🔍
 
-Script Python sederhana untuk mengecek balance ETH di jaringan Sepolia testnet untuk multiple address sekaligus.
+Script untuk mengecek balance ETH di jaringan Sepolia testnet untuk multiple address sekaligus.
 
 ## ⭐ Fitur
 
@@ -16,16 +16,27 @@ Script Python sederhana untuk mengecek balance ETH di jaringan Sepolia testnet u
 
 1. Clone repository ini
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/Aethereal-Collective/sepolia-balance-checker.git
+cd sepolia-balance-checker
 ```
 
-2. Install dependencies
+2. Buat dan aktifkan virtual environment
+```bash
+# Windows
+python -m venv venv
+.\venv\Scripts\activate
+
+# Linux/MacOS
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Buat file `privatekey.txt` dan masukkan private key yang ingin dicek (satu private key per baris)
+4. Buat file `privatekey.txt` dan masukkan private key yang ingin dicek (satu private key per baris)
 ```
 private_key_1
 private_key_2
@@ -46,26 +57,6 @@ Script akan menghasilkan:
 2. Balance untuk setiap address yang dicek
 3. Ringkasan total address yang berhasil/gagal dicek
 4. File `insufficient_address.txt` berisi daftar address dengan balance < 0.1 ETH
-
-## ⚙️ Konfigurasi
-
-Beberapa parameter yang bisa disesuaikan di `balance_checker.py`:
-- `MAX_RETRIES`: Jumlah maksimal percobaan jika terjadi error (default: 3)
-- `RETRY_DELAY`: Jeda waktu antar percobaan dalam detik (default: 5)
-- RPC URL: Bisa diganti dengan RPC node Sepolia lainnya
-
-## 🔒 Keamanan
-
-- Jangan pernah membagikan private key Anda
-- Pastikan file `privatekey.txt` ditambahkan ke `.gitignore`
-- Gunakan script ini hanya untuk address testnet
-
-## 🌐 Network
-
-Script ini menggunakan jaringan Sepolia testnet dengan detail:
-- Chain ID: 11155111
-- Currency: ETH
-- Explorer: [sepolia.etherscan.io](https://sepolia.etherscan.io)
 
 ## 📝 License
 
